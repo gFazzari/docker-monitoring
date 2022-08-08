@@ -1,0 +1,11 @@
+route:
+    receiver: 'devsecops'
+    group_wait: 30s
+    group_interval: 60s
+    repeat_interval: 15m
+    group_by: ['room', 'alertName']
+
+receivers:
+    - name: 'devsecops'
+      webhook_configs:
+      - url: 'http://calert:6000/dispatch'
